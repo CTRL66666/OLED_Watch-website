@@ -1,0 +1,440 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(94, 234, 212, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(94, 234, 212, 0.6); }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.5s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+/* Gradient backgrounds */
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.bg-gradient-accent {
+  background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #e94560 100%);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===== CODE BLOCK STYLING - LIGHT THEME ===== */
+.code-block {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  overflow-x: auto;
+  border: 1px solid #e9ecef;
+  color: #212529;
+}
+
+.code-block pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Syntax highlighting for light theme */
+.code-block .keyword { color: #d73a49; font-weight: 600; }
+.code-block .string { color: #032f62; }
+.code-block .comment { color: #6a737d; font-style: italic; }
+.code-block .function { color: #6f42c1; font-weight: 600; }
+.code-block .number { color: #005cc5; }
+.code-block .type { color: #22863a; }
+.code-block .macro { color: #e36209; }
+.code-block .operator { color: #d73a49; }
+
+/* Dark code block variant (for contrast sections) */
+.code-block-dark {
+  background: #1e1e2e;
+  border-radius: 12px;
+  padding: 1.5rem;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  overflow-x: auto;
+  border: 1px solid #2d2d44;
+  color: #f8f8f2;
+}
+
+.code-block-dark .keyword { color: #ff79c6; font-weight: 600; }
+.code-block-dark .string { color: #f1fa8c; }
+.code-block-dark .comment { color: #6272a4; font-style: italic; }
+.code-block-dark .function { color: #50fa7b; }
+.code-block-dark .number { color: #bd93f9; }
+.code-block-dark .type { color: #8be9fd; }
+.code-block-dark .macro { color: #ffb86c; }
+
+/* Circuit pattern background */
+.circuit-bg {
+  background-image: 
+    linear-gradient(90deg, rgba(94, 234, 212, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(94, 234, 212, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Node styling for architecture diagram */
+.arch-node {
+  @apply relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300;
+}
+
+.arch-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Connection lines */
+.connection-line {
+  stroke: #5eead4;
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 5, 5;
+  animation: dash 20s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+/* Interactive elements */
+.interactive-card {
+  @apply cursor-pointer transition-all duration-300;
+}
+
+.interactive-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Section styling */
+.section-title {
+  @apply text-3xl md:text-4xl font-bold mb-6;
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Tab styling */
+.custom-tab {
+  @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200;
+}
+
+.custom-tab.active {
+  @apply bg-gradient-to-r from-[#0f3460] to-[#533483] text-white;
+}
+
+.custom-tab:not(.active) {
+  @apply text-gray-600 hover:bg-gray-100;
+}
+
+/* Feature card improvements */
+.feature-card {
+  @apply bg-white rounded-xl p-6 transition-all duration-300;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.feature-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Game card styling */
+.game-card {
+  @apply rounded-xl p-4 cursor-pointer transition-all duration-300;
+}
+
+.game-card:hover {
+  transform: translateX(4px);
+}
+
+/* File tree styling */
+.file-tree-item {
+  @apply flex items-center space-x-2 py-2 px-3 rounded-lg cursor-pointer transition-all duration-200;
+}
+
+.file-tree-item:hover {
+  @apply bg-gray-100;
+}
+
+.file-tree-item.active {
+  @apply bg-blue-50 text-blue-700;
+}
+
+/* Buffer visualization */
+.buffer-visualization {
+  @apply relative bg-gray-900 rounded-xl p-6 overflow-hidden;
+}
+
+.buffer-screen {
+  @apply relative bg-black rounded-lg border-2 border-gray-700;
+  aspect-ratio: 2 / 1;
+}
+
+/* OLED pixel grid */
+.pixel-grid {
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* Animation canvas styling */
+.animation-canvas {
+  @apply w-full rounded-xl border border-gray-200;
+  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Event bus node styling */
+.event-node {
+  @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200;
+}
+
+.event-node.active {
+  @apply bg-yellow-400 text-yellow-900 shadow-lg;
+}
+
+.event-node.inactive {
+  @apply bg-gray-100 text-gray-600;
+}
+
+/* Subscriber node styling */
+.subscriber-node {
+  @apply px-4 py-2 rounded-lg text-sm font-medium text-center transition-all duration-500;
+}
+
+.subscriber-node.active {
+  @apply bg-green-400 text-green-900 shadow-lg scale-105;
+}
+
+.subscriber-node.inactive {
+  @apply bg-gray-100 text-gray-500;
+}
+
+/* Menu item styling */
+.menu-item {
+  @apply absolute transition-all duration-300 flex flex-col items-center;
+}
+
+.menu-item-icon {
+  @apply w-16 h-16 rounded-xl flex items-center justify-center shadow-lg;
+}
+
+.menu-item-label {
+  @apply mt-2 text-white text-xs whitespace-nowrap font-medium;
+}
+
+/* Stats counter styling */
+.stat-counter {
+  @apply text-center;
+}
+
+.stat-counter .number {
+  @apply text-4xl md:text-5xl font-bold;
+  background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-counter .label {
+  @apply text-sm text-gray-500 mt-1;
+}
+
+/* Layer card styling */
+.layer-card {
+  @apply p-4 rounded-xl cursor-pointer transition-all duration-300;
+}
+
+.layer-card:hover {
+  transform: translateX(4px);
+}
+
+/* Architecture diagram node */
+.arch-diagram-node {
+  @apply px-6 py-3 rounded-xl text-white font-medium text-center shadow-lg transition-all duration-300;
+}
+
+.arch-diagram-node:hover {
+  transform: scale(1.05);
+}
+
+/* Connection arrow styling */
+.connection-arrow {
+  @apply flex items-center text-gray-400 text-sm;
+}
+
+/* Code preview panel */
+.code-preview-panel {
+  @apply bg-white rounded-xl border border-gray-200 overflow-hidden;
+}
+
+.code-preview-panel .header {
+  @apply px-4 py-3 bg-gray-50 border-b border-gray-200 flex items-center justify-between;
+}
+
+.code-preview-panel .content {
+  @apply p-0;
+}
+
+/* Improved readability for text blocks */
+.text-readable {
+  @apply text-gray-700 leading-relaxed;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Icon with text layout */
+.icon-text-row {
+  @apply flex items-start space-x-4;
+}
+
+.icon-text-row .icon-wrapper {
+  @apply w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0;
+}
+
+.icon-text-row .content {
+  @apply flex-1;
+}
+
+.icon-text-row .title {
+  @apply font-semibold text-gray-900 mb-1;
+}
+
+.icon-text-row .description {
+  @apply text-gray-600 text-sm leading-relaxed;
+}
